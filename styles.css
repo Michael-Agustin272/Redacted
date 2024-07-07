@@ -5,16 +5,18 @@
     list-style: none;
     font-family: "Poppins", sans-serif;
     color: #14213D;
+    scroll-behavior: smooth;
 
 }
 
-nav{
+header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     height: 85px;
     position: fixed;
+    top: 0;
     backdrop-filter: blur(30px);
 
 }
@@ -36,6 +38,10 @@ nav{
     color:#FCA311;
     transition: ease 0.2s;
 }
+.active{
+    color:#FCA311;
+
+}
 
 .nav-list{
     display: flex;
@@ -47,6 +53,10 @@ nav{
 
 }
 
+header nav a{
+    text-decoration: none;
+}
+
 
 #landing-left{
     flex-basis: 55%;
@@ -54,22 +64,43 @@ nav{
     margin-right: 0;
     margin-top: 13%;
 }
+
+@keyframes slideToLeft{
+    0%{transform: translateX(300px);
+    opacity: 0;}
+
+    100%{transform: translateX(0px);
+    opacity: 1;}
+}
+
+
 #main-header{
     font-size: 110px;
+    animation: slideToLeft;
+    animation-duration: .8s;
+    animation-timing-function: ease-in-out;
 }
 #main-sub-header{
     font-size: 35px;
+    animation: slideToLeft;
+    animation-duration: .8s;
+    animation-timing-function: ease-in-out ;
+    animation-delay: 0.2s;
 }
 button{
     background-color: #FCA311;
     color: white;
     border:30px;
-    font-size: 36px;
-    width: 300px;
+    font-size: 24px;
+    width: 200px;
     height: 60px;
     border-radius: 30px;
     margin-top: 20px;
     font-weight: 600;
+    animation: slideToLeft;
+    animation-duration: .8s;
+    animation-timing-function: ease-in-out ;
+    animation-delay: 0.4s;
 }
 button:hover{
     cursor: pointer;
@@ -161,10 +192,14 @@ button:hover{
 #card-container{
     display: flex;
     margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:20px;
 }
 .roadmap-card{
     width: 400px;
-    height: 400px;
+    height: 450px;
     background-color: white;
     border-radius: 30px;
     box-shadow: -7px 26px 77px -14px rgba(0,0,0,0.34);
@@ -200,6 +235,55 @@ button:hover{
 
 
 }
+
+#contact-container{
+    border: #FCA311 solid 3px;
+    background-color: #FCA311;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-brands{
+    font-size: 60px;
+}
+.fa-brands:hover{
+    cursor: pointer;
+    color: white;
+}
+
+
+
+#social-icons{
+    display: flex;
+    gap: 40px;
+}
+
+
+
+/*Scrolling animaton*/
+
+/*#main-header{
+    opacity: 0;
+    filter:blur(2px);
+    transform: translateX(100%);
+    transition: all ease 1s;
+
+
+}
+.swipe-to-left{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    
+
+}*/
+
+
+/*End of Scrolling animation*/
+
 
 /*tablet view*/
 
@@ -313,7 +397,7 @@ button:hover{
         flex-direction: column;
     }
     .p-text{
-        font-size: 12px;
+        font-size: 16px;
     }
     .left{
         width: 100%;
@@ -333,7 +417,7 @@ button:hover{
 
     .roadmap-card{
         width: 300px;
-        height: 300px;
+        height:fit-content;
         background-color: white;
         border-radius: 30px;
         box-shadow: -7px 26px 77px -14px rgba(0,0,0,0.34);
@@ -341,7 +425,18 @@ button:hover{
     
     
     }
-    .roadmap-list{
-        font-size: 12px;
+    .roadmap-content{
+        margin-bottom: 8%;
     }
+    .roadmap-list{
+        font-size: 16px;
+    }
+
+    .fa-brands{
+        font-size: 40px;
+    }
+    #social-icons{
+        gap: 10px;
+    }
+    
 }
